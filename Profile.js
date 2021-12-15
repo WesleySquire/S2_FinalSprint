@@ -1,22 +1,26 @@
 import React from "react";
-import ProfilePic from "./Images/cover3.jpg";
 import Users from "./LocalStorage";
 import { Route, Routes, BrowserRouter as Router, Link } from "react-router-dom";
 
 export default function Profile(props) {
   const user = JSON.parse(localStorage.getItem("user"));
-  const posts = user["posts"];
+  const posts = user.posts;
+  if (posts === null) {
+    posts = "You've never made a post!";
+  } else {
+    console.log(JSON.stringify(posts));
+  }
+  // JSON.stringify(posts);
+  // const i = 0;
+  // const post = [];
+  // for (i; i < posts.length - 1; i++) {
+  //   <li class="post">
+  //     <img src={user.picture} class="ProfilePic" />
+  //     <p>{post}</p>
+  //   </li>;
+  // }
 
-  const post = posts.forEach((item) => {
-    item = posts.map((item) => {
-      <li class="post">
-        <img src={user.picture} class="ProfilePic" />
-        <p>{item}</p>
-      </li>;
-    });
-  });
-
-  console.log(post);
+  // console.log(post);
   return (
     <div class="Profile">
       <div className="App">
@@ -54,7 +58,13 @@ export default function Profile(props) {
       <hr />
 
       <div id="ProfilePosts">
-        <ul id="posts">{post}</ul>
+        <ul id="posts">
+          <p>Heres your first ever post!</p>
+          <li class="post">
+            <img src={user.picture} class="ProfilePic" />
+            <p>{posts[0]}</p>
+          </li>
+        </ul>
       </div>
     </div>
   );

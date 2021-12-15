@@ -37,7 +37,7 @@ export default function Users() {
       picture: "https://avatars.githubusercontent.com/u/3?v=4",
       password: "admin",
       bio: "Admin Acc.",
-      posts: ["Hello I'm Alans first post", "Hello I'm Alans second post!"],
+      posts: ["Hello I'm admins first post", "Hello I'm admins second post!"],
     },
   ];
   return users;
